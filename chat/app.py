@@ -4,11 +4,9 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 app = FastAPI()
 NAME = os.environ.get("INSTANCE", "unknown")
 
-
 @app.get("/healthz")
 def healthz():
     return {"ok": True, "instance": NAME}
-
 
 @app.websocket("/ws")
 async def ws(websocket: WebSocket):

@@ -2,8 +2,8 @@ services:
   haproxy:
     image: haproxy:3.0
     ports:
-      - "80:8080"                  # HAProxy runs as non-root, so it listens on 8080 inside
-      - "127.0.0.1:8404:8404"      # stats page: local only
+      - "80:8080" # HAProxy runs as non-root, so it listens on 8080 inside
+      - "127.0.0.1:8404:8404" # stats page: local only
     volumes:
       - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
     depends_on: [chat1, chat2]
